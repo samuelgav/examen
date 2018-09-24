@@ -43,15 +43,15 @@ $(function() {
 
 $(document).ready(function () {
 	 $(document).on('click', '#deleteTP', function(e){			
-			var productId = $(this).data('id');	
-			SwalDelete(productId);
+			var TipoPersonaId = $(this).data('id');	
+			SwalDelete(TipoPersonaId);
 			e.preventDefault();		
 	 });
 	  
 });
 
 
-function SwalDelete(productId){
+function SwalDelete(TipoPersonaId){
 	swal({
 		title: 'Esta seguro?',
 		text: "Estos datos se eliminaran permanentemente.!",
@@ -65,7 +65,7 @@ function SwalDelete(productId){
 		  return new Promise(function(resolve) {
 		       
 		     $.ajax({
-		   		url: window.contextRoot +'/manage/'+productId+'/delete',
+		   		url: window.contextRoot +'/manage/'+TipoPersonaId+'/delete',
 		    	type: 'POST',
 		    	timeout : 100000		    	
 		     })
