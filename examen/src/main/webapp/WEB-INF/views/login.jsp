@@ -71,7 +71,7 @@
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
             <input id="username" type="text">
-            <label for="username" class="center-align">Username</label>
+            <label for="username" class="center-align">Usuario</label>
           </div>
         </div>
         <div class="row margin">
