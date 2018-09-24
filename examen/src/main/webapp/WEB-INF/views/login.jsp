@@ -64,7 +64,7 @@
         <div class="row">
           <div class="input-field col s12 center">
             <img src="${images}/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
-            <p class="center login-form-text">Logueo de Usuario</p>
+            <p class="center login-form-text">Logueo de Usuarios</p>
           </div>
         </div>
         <div class="row margin">
