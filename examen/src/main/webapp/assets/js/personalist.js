@@ -30,6 +30,17 @@ $(function() {
 							data : 'tipoPersona.descripcion'
 						},
 						{
+							data: 'nombres',
+							bSortable : false,
+							mRender : function(data, type, row) {
+
+								return '<img src="' + window.contextRoot
+										+ '/resources/images/' + data
+										+ '.jpg" class="dataTableImg"/>';
+
+							}
+						},						
+						{
 							data : 'idpersona',
 							bSortable : false,
 							mRender : function(data, type, row) {
@@ -38,12 +49,14 @@ $(function() {
 										+ window.contextRoot
 										+ '/manage/'
 										+ data
-										+ '/persona" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
-							str += '<a href="javascript:void(0)" id="deleteP" data-id="'+data+'" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>';
+										+ '/persona" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a> &#160;';
+							str += '<a href="javascript:void(0)" id="deleteP" data-id="'+data+'" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a> &#160;';
+							str +='<a href="'+window.contextRoot+'/show/'+data+'/persona" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></a>';
 							return str;
 		
 							}
-						} ]
+						} 
+					]
 			});
 		
 		}

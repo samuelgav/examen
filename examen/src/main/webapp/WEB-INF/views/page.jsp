@@ -58,6 +58,11 @@
 		<c:if test="${userClickAddOrUpdatePersona== true}">
 				<%@include file="addOrupdatePersona.jsp"%>
 		</c:if>
+		
+		<!-- Load only when user clicks show product -->
+		<c:if test="${userClickShowPersona == true}">
+			<%@include file="singlePersona.jsp"%>
+		</c:if>
 
 	<!-- jQuery -->
     <script src="${js}/jquery.min.js"></script>

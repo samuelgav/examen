@@ -15,6 +15,7 @@
 						<th>Apellidos</th>
 						<th>Edad</th>
 						<th>Tipo Persona</th>
+						<th>Foto</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -25,6 +26,7 @@
 						<th>Apellidos</th>
 						<th>Edad</th>
 						<th>Tipo Persona</th>
+						<th>Foto</th>
 						<th></th>
 					</tr>
 				</tfoot>
