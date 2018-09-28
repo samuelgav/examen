@@ -1,4 +1,49 @@
-/* overridden css */
+h3.m_3 {
+	color: #555;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+p.m_text {
+	color: #999;
+	font-size: 1.1em;
+	line-height:1.8em;
+}
+
+.form_single{
+	margin-bottom:3%;
+}
+
+span.actual {
+	color:#FFAF02;
+	font-size: 1em;
+	margin-right:5%;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 .help-block {
 	color: #ff0000;
 }
@@ -8,4 +53,23 @@
 	width:100px;
 	height: 100px;
 	
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
 }

@@ -51,6 +51,11 @@ public class PageController {
 		Persona persona=personaDAO.get(idpersona);
 		if(persona ==null) throw new PersonaNotFoundException();
 		//mv.addObject("title", persona.getNombres());
+		if(persona.getSexo().equals("M")){
+			mv.addObject("sexo", "Masculino");
+		}else{
+			mv.addObject("sexo", "Femenino");
+		}
 		mv.addObject("persona", persona);
 		mv.addObject("userClickShowPersona", true);
 		return mv;

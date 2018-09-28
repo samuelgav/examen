@@ -50,6 +50,9 @@
                         <li>
                             <a href="${contextRoot}/show/all/personas"><i class="fa fa-dashboard fa-fw"></i> Personas</a>
                         </li>
+                        <li>
+                            <a href="${contextRoot}/show/all/producto"><i class="fa fa-dashboard fa-fw"></i> Producto</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
