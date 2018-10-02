@@ -59,10 +59,20 @@
 				<%@include file="addOrupdatePersona.jsp"%>
 		</c:if>
 		
+		<c:if test="${userClickAllProductos == true or userClickCategoriaProductos==true}" >
+			<%@include file="listProductos.jsp" %>
+		</c:if>
+		
+		
 		<!-- Load only when user clicks show product -->
 		<c:if test="${userClickShowPersona == true}">
 			<%@include file="singlePersona.jsp"%>
 		</c:if>
+		
+		
+		<c:if test="${userClickAdministrarProducto == true}">
+				<%@include file="administrarProducto.jsp"%>
+			</c:if>	
 
 	<!-- jQuery -->
     <script src="${js}/jquery.min.js"></script>
@@ -80,8 +90,10 @@
 	<script src="${js}/jquery.dataTables.js"></script>
 	<!-- DataTable Bootstrap Script -->
 	<script src="${js}/dataTables.bootstrap.js"></script>
+	<script src="${js}/bootbox.min.js"></script>
     <script src="${js}/tipopersonalist.js"></script>    
     <script src="${js}/sweetalert2.min.js"></script>
     <script src="${js}/personalist.js"></script>
+    <script src="${js}/productolist.js"></script>    
 </body>
 </html>

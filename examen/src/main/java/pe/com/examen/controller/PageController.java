@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.examen.dao.CategoriaDao;
 import pe.com.examen.dao.PersonaDao;
+import pe.com.examen.dto.Categoria;
 import pe.com.examen.dto.Persona;
 import pe.com.examen.exception.PersonaNotFoundException;
 
@@ -17,6 +19,9 @@ public class PageController {
 	
 	@Autowired
 	private PersonaDao personaDAO;
+	
+	@Autowired
+	private CategoriaDao categoriaDAO;
 	
 	@RequestMapping(value={"/","/index","/home"})
 	public ModelAndView index(){
@@ -61,5 +66,22 @@ public class PageController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/show/all/producto")
+	public ModelAndView showAllProductos(){
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("categorias", categoriaDAO.list());
+		mv.addObject("userClickAllProductos",true);
+		return mv;		
+	}
 	
+	@RequestMapping(value="/show/categoria/{id}/productos")
+	public ModelAndView showProductosPorCategoria(@PathVariable("id") int id){
+		ModelAndView mv=new ModelAndView("page");
+		Categoria categoria=null;
+		categoria=categoriaDAO.get(id);
+		mv.addObject("categorias", categoriaDAO.list());
+		mv.addObject("categoria", categoria);
+		mv.addObject("userClickCategoriaProductos", true);
+		return mv;
+	}
 }

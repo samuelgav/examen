@@ -27,7 +27,7 @@ public class Producto implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_producto")
 	@SequenceGenerator(name="seq_producto",sequenceName="seq_id_producto",allocationSize=1)
-	private long id;
+	private int id;
 	@Column(name="codigo")
 	private String codigo;
 	@NotBlank(message="Por favor ingrese el nombre!!")
@@ -48,10 +48,10 @@ public class Producto implements Serializable{
 	private String estado="1";
 	@Column(name="categoria_id")
 	@JsonIgnore
-	private long categoriaId;
+	private int categoriaId;
 	@Column(name="usuario_id")
 	@JsonIgnore
-	private long usuarioId;
+	private int usuarioId;
 	@Column(name="purchases")
 	private int purchases;
 	@Column(name="vistas")
@@ -73,11 +73,11 @@ public class Producto implements Serializable{
 		this.codigo = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -137,19 +137,19 @@ public class Producto implements Serializable{
 		this.estado = estado;
 	}
 
-	public long getCategoriaId() {
+	public int getCategoriaId() {
 		return categoriaId;
 	}
 
-	public void setCategoriaId(long categoriaId) {
+	public void setCategoriaId(int categoriaId) {
 		this.categoriaId = categoriaId;
 	}
 
-	public long getUsuarioId() {
+	public int getUsuarioId() {
 		return usuarioId;
 	}
 
-	public void setUsuarioId(long usuarioId) {
+	public void setUsuarioId(int usuarioId) {
 		this.usuarioId = usuarioId;
 	}
 

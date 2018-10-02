@@ -25,7 +25,7 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_usuario")
 	@SequenceGenerator(name="seq_usuario",sequenceName="seq_id_usuario",allocationSize=1)
-	private long id;
+	private int id;
 	@NotBlank(message="Por favor ingrese su nombre!!")
 	@Column(name="nombres")
 	private String nombres;
@@ -53,10 +53,10 @@ public class Usuario implements Serializable{
 	public void setConfirmarPassword(String confirmarPassword) {
 		this.confirmarPassword = confirmarPassword;
 	}
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNombres() {

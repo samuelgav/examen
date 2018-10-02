@@ -19,9 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.examen.dao.CategoriaDao;
 import pe.com.examen.dao.PersonaDao;
+import pe.com.examen.dao.ProductoDao;
 import pe.com.examen.dao.TipoPersonaDao;
+import pe.com.examen.dto.Categoria;
 import pe.com.examen.dto.Persona;
+import pe.com.examen.dto.Producto;
 import pe.com.examen.dto.TipoPersona;
 import pe.com.examen.model.Response;
 import pe.com.examen.util.FileUtil;
@@ -39,6 +43,12 @@ public class ManagementController {
 	@Autowired
 	private PersonaDao personaDAO;
 	
+	@Autowired
+	private ProductoDao productoDAO;
+	
+	@Autowired
+	private CategoriaDao categoriaDAO;
+		
 	@RequestMapping(value="/tipopersona")
 	public ModelAndView manageTipoPersona(@RequestParam(name="success",required=false)String success){
 		ModelAndView mv=new ModelAndView("page");
@@ -64,6 +74,38 @@ public class ManagementController {
 		}
 		return mv;
 	}
+	
+	
+	@RequestMapping(value="/producto")
+	public ModelAndView manageProducto(@RequestParam(name="success",required=false)String success){
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("userClickAdministrarProducto", true);
+		Producto producto=new Producto();
+		producto.setUsuarioId(1);
+		producto.setEstado("1");
+		mv.addObject("producto", producto);
+		if(success != null) {
+			if(success.equals("product")){
+				mv.addObject("message", "Product submitted successfully!");
+			}	
+			else if (success.equals("category")) {
+				mv.addObject("message", "Category submitted successfully!");
+			}
+		}
+		return mv;
+	}
+	
+	@ModelAttribute("categorias")
+	public List<Categoria> modeloCategorias(){
+		return categoriaDAO.list();
+	}
+	
+	@ModelAttribute("categoria")
+	public Categoria modeloCategoria(){
+		return new Categoria();
+	}
+	
+	
 	
 	
 	@RequestMapping("/{id}/tipopersona")
@@ -172,4 +214,22 @@ public class ManagementController {
 	}
 	
 	
+	
+	@RequestMapping(value = "/producto/{id}/activation", method=RequestMethod.GET)
+	@ResponseBody
+	public String managePostProductActivation(@PathVariable int id) {
+		Producto producto=productoDAO.get(id);
+		String estado=producto.getEstado();
+		String mensaje="";		
+		if(estado.equals("1")){
+			producto.setEstado("0");
+			mensaje="Producto desactivado correctamente";
+		}else if(estado.equals("0")){
+			producto.setEstado("1");
+			mensaje="Producto activado correctamente";
+		}
+		productoDAO.update(producto);
+		return mensaje;
+		
+	}	
 }

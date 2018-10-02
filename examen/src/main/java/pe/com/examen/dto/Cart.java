@@ -18,15 +18,15 @@ public class Cart implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_cart")
 	@SequenceGenerator(name="seq_cart",sequenceName="seq_id_cart",allocationSize=1)
-	private long id;
+	private int id;
 	@Column(name="grand_total")
 	private double grandTotal;
 	@Column(name="cart_lines")
 	private int cartLines;
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public double getGrandTotal() {
@@ -56,5 +56,4 @@ public class Cart implements Serializable{
 		this.usuario = usuario;
 	}
 	
-
 }

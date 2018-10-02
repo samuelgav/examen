@@ -2,11 +2,10 @@ package pe.com.examen.daoimpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import pe.com.examen.dao.ProductoDao;
 import pe.com.examen.dto.Producto;
@@ -21,7 +20,7 @@ public class ProductoDaoImpl implements ProductoDao{
 	@Override
 	public List<Producto> list() {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().createQuery("FROM Producto where estado=:estado").setParameter("estado","1").getResultList();
+		return sessionFactory.getCurrentSession().createQuery("FROM Producto",Producto.class).getResultList();
 	}
 
 	@Override
@@ -65,6 +64,18 @@ public class ProductoDaoImpl implements ProductoDao{
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public List<Producto> listProductosActivos() {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("FROM Producto where estado=:estado",Producto.class).setParameter("estado","1").getResultList();
+	}
+
+	@Override
+	public List<Producto> listProductosPorCategoria(int categoriaId) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("FROM Producto where estado=:estado AND categoriaId=:categoriaId",Producto.class).setParameter("estado","1").setParameter("categoriaId",categoriaId ).getResultList();
 	}
 
 }

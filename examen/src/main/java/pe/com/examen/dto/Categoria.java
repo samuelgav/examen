@@ -17,7 +17,7 @@ public class Categoria implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_categoria_id")
 	@SequenceGenerator(name="seq_categoria_id",sequenceName="seq_id_categoria",allocationSize=1)
-	private long id;
+	private int id;
 	@Column(name="nombre")
 	private String nombre;
 	@Column(name="descripcion")
@@ -26,10 +26,10 @@ public class Categoria implements Serializable{
 	private String imagenUrl;
 	@Column(name="estado")
 	private String estado="1";
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNombre() {
