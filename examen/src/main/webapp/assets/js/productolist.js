@@ -124,7 +124,7 @@ $(function() {
 							bSortable : false,
 							mRender : function(data, type, row) {
 								var str = '';
-								if(data) {											
+								if(data == '1') {											
 									str += '<label class="switch"> <input type="checkbox" value="'+row.id+'" checked="checked">  <div class="slider round"> </div></label>';
 									
 								}else {
@@ -149,9 +149,7 @@ $(function() {
 								return str;
 							}
 						}					           	
-			],
-			
-			
+			],			
 			initComplete: function () {
 				var api = this.api();
 				api.$('.switch input[type="checkbox"]').on('change' , function() {							
@@ -164,7 +162,7 @@ $(function() {
 				    	title: 'Producto Activacion/Desactivacion',
 				    	message: dText,
 				    	callback: function (confirmed) {
-					        if (confirmed) {
+				    		if (confirmed) {
 					            $.ajax({							            	
 					            	type: 'GET',
 					            	url: window.contextRoot + '/manage/producto/'+checkbox.prop('value')+'/activation',
@@ -189,10 +187,42 @@ $(function() {
 	}
 	
 	
+	function errorPlacement(error,element){
+		error.addClass("help-block");
+		error.insertAfter(element);
+		element.parents(".validate").addClass("has-feedback");
+	}
 	
 	
-	
-	
+	var $categoriaForm=$("#categoriaForm");
+	if($categoriaForm.length){
+		$categoriaForm.validate({
+			rules:{
+				nombre:{
+					required:true,
+					minlength:3
+				},
+				descripcion:{
+					required:true,
+					minlength:3
+				}
+			},
+			messages:{
+				nombre:{
+					required:"Por favor ingrese el nombre de la categoria!!",
+					minlength:"Longitud debe ser minima de 3 caracteres!!"
+				},
+				descripcion:{
+					required:"Por favor ingrese la descripcion de la categoria!!",
+					minlength:"Longitud debe ser minima de 3 caracteres!!"
+				}
+			},
+			errorElement:'em',
+			errorPlacement:function(error,element){
+				errorPlacement(error, element);
+			}
+		});
+	}
 	
 	
 	

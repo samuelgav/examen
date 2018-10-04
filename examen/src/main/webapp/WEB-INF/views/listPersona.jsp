@@ -5,7 +5,7 @@
 			<p align="right">
 				<a href="${contextRoot}/manage/persona" class="btn btn-success">Agregar</a>
 			</p>
-
+		<div class="table-responsive">
 			<table id="PersonaListTable"
 				class="table table-striped table-borderd">
 				<thead>
@@ -31,7 +31,7 @@
 					</tr>
 				</tfoot>
 			</table>
-
+		</div>
 		</div>
 	</div>
 </div>

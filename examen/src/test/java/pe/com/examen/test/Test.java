@@ -40,7 +40,7 @@ public class Test {
 		//test.listarPersona();
 		//test.createCategoria();
 		//test.listCategoria();
-		test.updateProducto();
+		//test.updateProducto();
 		test.listarProducto();
 	}
 	
@@ -61,7 +61,7 @@ public class Test {
 	public void listarProducto(){
 		List<Producto> list=productoDao.list();
 		for (Producto producto : list) {
-			System.out.println("ID: "+producto.getId()+" Nombre: "+producto.getNombre()+ " Cantidad:"+producto.getCantidad()+ " Estado: "+producto.getEstado());
+			System.out.println("ID: "+producto.getId()+" Nombre: "+producto.getNombre()+" Codigo: "+producto.getCodigo()+ " Cantidad:"+producto.getCantidad()+ " Estado: "+producto.getEstado());
 		}
 	}
 	

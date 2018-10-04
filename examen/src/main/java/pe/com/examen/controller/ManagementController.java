@@ -30,6 +30,7 @@ import pe.com.examen.dto.TipoPersona;
 import pe.com.examen.model.Response;
 import pe.com.examen.util.FileUtil;
 import pe.com.examen.validator.PersonaValidator;
+import pe.com.examen.validator.ProductoValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -85,15 +86,65 @@ public class ManagementController {
 		producto.setEstado("1");
 		mv.addObject("producto", producto);
 		if(success != null) {
-			if(success.equals("product")){
-				mv.addObject("message", "Product submitted successfully!");
+			if(success.equals("producto")){
+				mv.addObject("message", "Producto Enviado correctamente!");
 			}	
-			else if (success.equals("category")) {
-				mv.addObject("message", "Category submitted successfully!");
+			else if (success.equals("categoria")) {
+				mv.addObject("message", "Categoria Enviado correctamente!");
 			}
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value="/{id}/producto")
+	public ModelAndView manageProductoEdit(@PathVariable int id){
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("userClickAdministrarProducto", true);
+		mv.addObject("producto", productoDAO.get(id));
+		return mv;
+	}
+	
+	
+	
+	@RequestMapping(value="/producto",method=RequestMethod.POST)
+	public String managePostProducto(@Valid @ModelAttribute("producto") Producto producto,BindingResult
+									results,Model model,HttpServletRequest request){
+		if(producto.getId()==0){
+			new ProductoValidator().validate(producto, results);
+		}
+		else{
+			if(!producto.getFile().getOriginalFilename().equals("")){
+				new ProductoValidator().validate(producto, results);
+			}
+		}
+		
+		if(results.hasErrors()){
+			model.addAttribute("message", "Fallo al enviar datos!!");
+			model.addAttribute("userClickAdministrarProducto", true);
+			return "page";
+		}
+		
+		if(producto.getId()==0){
+			productoDAO.save(producto);
+		}else{
+			productoDAO.update(producto);
+		}
+		
+		if(!producto.getFile().getOriginalFilename().equals("")){
+			FileUtil.uploadFile(request, producto.getFile(), producto.getCodigo());
+		}
+		
+		return "redirect:/manage/producto?success=producto";
+	}
+	
+	
+	
+	@RequestMapping(value="/categoria",method=RequestMethod.POST)
+	public String managePostCategoria(@ModelAttribute("categoria") Categoria categoria,HttpServletRequest request){
+		categoriaDAO.create(categoria);
+		return "redirect:"+request.getHeader("Referer")+"?success=categoria";
+	}
+	
 	
 	@ModelAttribute("categorias")
 	public List<Categoria> modeloCategorias(){

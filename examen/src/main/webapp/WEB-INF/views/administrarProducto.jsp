@@ -137,7 +137,8 @@
 	<h1>Productos Disponibles</h1>
 	<hr/>
 	<div class="row">		
-		<div class='col-xs-12'>		
+		<div class="col-xs-12">
+			<div class="table-responsive">		
 			<table id="productosTable" class="table table-condensed table-bordered">
 				<thead>					
 					<tr>					
@@ -164,9 +165,7 @@
 					</tr>
 				</tfoot>
 			</table>
+			</div>
 		</div>
 	</div>
-
-
-
 </div>

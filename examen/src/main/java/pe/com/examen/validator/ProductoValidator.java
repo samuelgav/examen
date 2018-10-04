@@ -17,12 +17,19 @@ public class ProductoValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		Producto producto=(Producto) target;
-		if(producto.getFile()== null || producto.getFile().getOriginalFilename().equals("")){
+		if(producto.getFile() == null || producto.getFile().getOriginalFilename().equals("")) {
 			errors.rejectValue("file", null, "por favor seleccione un archivo!!");
+			return;
 		}
-		if(!(producto.getFile().getContentType().equals("image/jpeg")|| producto.getFile().getContentType().equals("image/png")||producto.getFile().getContentType().equals("image/gif"))){
+		if(! (producto.getFile().getContentType().equals("image/jpeg") || 
+				producto.getFile().getContentType().equals("image/png")) ||
+				producto.getFile().getContentType().equals("image/gif")
+			 )
+			{
 			errors.rejectValue("file", null, "Por favor ingrese archivo tipo imagen!!");
-		}
+				return;	
+			}
+		
 		
 	}
 
