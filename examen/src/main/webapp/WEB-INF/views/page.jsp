@@ -51,6 +51,10 @@
 				<%@include file="listPersona.jsp"%>
 		</c:if>
 		
+		<c:if test="${userClickAbout== true}">
+				<%@include file="about.jsp"%>
+		</c:if>
+		
 		<c:if test="${userClickAddOrUpdateTipoPersona== true}">
 				<%@include file="addOrupdate.jsp"%>
 		</c:if>

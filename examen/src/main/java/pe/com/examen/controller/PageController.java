@@ -43,6 +43,14 @@ public class PageController {
 		return mv;				
 	}
 	
+	@RequestMapping(value="/about")
+	public ModelAndView about(){
+		ModelAndView mv=new ModelAndView("page");
+		mv.addObject("userClickAbout", true);
+		return mv;
+	}
+	
+	
 	@RequestMapping(value = "/show/all/personas")
 	public ModelAndView showAllPersonas() {		
 		ModelAndView mv = new ModelAndView("page");		

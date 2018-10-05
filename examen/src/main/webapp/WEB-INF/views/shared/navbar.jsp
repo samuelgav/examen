@@ -40,6 +40,10 @@
                         </li>
                         
                         <li>
+                            <a href="${contextRoot}/about"><i class="fa fa-dashboard fa-fw"></i> Acerca de Nosotros</a>
+                        </li>
+                        
+                        <li>
                             <a href="${contextRoot}/login"><i class="fa fa-dashboard fa-fw"></i> Login</a>
                         </li>
                         
