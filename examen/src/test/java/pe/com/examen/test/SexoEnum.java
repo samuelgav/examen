@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public enum SexoEnum {
 	MASCULINO("M","Masculino"),
@@ -13,7 +14,7 @@ public enum SexoEnum {
 	private final String value;
 	
 	private static List<SexoEnum> list=new ArrayList<>();
-	private static HashMap<String,SexoEnum> lookup=new HashMap<>();
+	private static Map<String,SexoEnum> lookup=new HashMap<>();
 	
 	static{
 		for(SexoEnum s:EnumSet.allOf(SexoEnum.class)){
