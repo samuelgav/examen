@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 
+	//constantes
 	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
 	private static final String DIALECT="org.hibernate.dialect.Oracle10gDialect";
 	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
