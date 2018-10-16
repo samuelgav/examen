@@ -61,10 +61,19 @@
                             <a href="${contextRoot}/manage/producto"><i class="fa fa-dashboard fa-fw"></i> Administrar Producto</a>
                         </li>
                         
-                        <!-- <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Producto</a>
-                       
-                        </li> -->
+                        <li>
+                            <a href="${contextRoot}/show/all/producto"><i class="fa fa-bar-chart-o fa-fw"></i> Productos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <c:forEach items="${categorias}" var="categoria">
+                                	<li>
+                                    	<a href="${contextRoot}/show/categoria/${categoria.id}/productos" id="a_${categoria.nombre}">${categoria.nombre}</a>
+                                	</li>
+                                </c:forEach>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
