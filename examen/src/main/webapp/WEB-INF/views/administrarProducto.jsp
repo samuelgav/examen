@@ -1,6 +1,6 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<div id="page-wrapper">
 
+<div id="page-wrapper">
 		<c:if test="${not empty message}">	
 			<div class="row">			
 				<div class="col-xs-12 col-md-offset-2 col-md-8">			

@@ -1,5 +1,7 @@
 package pe.com.examen.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,6 +49,48 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+
+	@Override
+	public Usuario getByEmail(String email) {
+		String sql="FROM Usuario where email =:email";
+		try {
+			return sessionFactory.getCurrentSession()
+					.createQuery(sql,Usuario.class).setParameter("email",email).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public Direccion getBillingDireccion(int usuarioId) {
+		String sql="From Direccion WHERE usuarioId = :usuarioId AND billing=:billing";
+		try {
+			return sessionFactory.getCurrentSession()
+				   .createQuery(sql,Direccion.class).setParameter("usuarioId",usuarioId)
+				   .setParameter("billing", "1")
+				   .getSingleResult();
+				   
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<Direccion> listShippingDirecciones(int usuarioId) {
+		String sql="From Direccion WHERE usuarioId = :usuarioId AND shipping=:shipping";
+		try {
+			return sessionFactory.getCurrentSession()
+				   .createQuery(sql,Direccion.class).setParameter("usuarioId",usuarioId)
+				   .setParameter("shipping", "1")
+				   .getResultList();
+				   
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 

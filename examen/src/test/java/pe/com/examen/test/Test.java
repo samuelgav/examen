@@ -8,10 +8,14 @@ import pe.com.examen.dao.CategoriaDao;
 import pe.com.examen.dao.PersonaDao;
 import pe.com.examen.dao.ProductoDao;
 import pe.com.examen.dao.TipoPersonaDao;
+import pe.com.examen.dao.UsuarioDao;
+import pe.com.examen.dto.Cart;
 import pe.com.examen.dto.Categoria;
+import pe.com.examen.dto.Direccion;
 import pe.com.examen.dto.Persona;
 import pe.com.examen.dto.Producto;
 import pe.com.examen.dto.TipoPersona;
+import pe.com.examen.dto.Usuario;
 
 public class Test {
 
@@ -20,7 +24,11 @@ public class Test {
 	private static PersonaDao personaDao;
 	private static CategoriaDao categoriaDao;
 	private static ProductoDao productoDao;
+	private static UsuarioDao usuarioDao;
 	private static Test test;
+	public Usuario usuario=null;
+	public Direccion direccion=null;
+	public Cart cart=null;
 	
 	public static void main(String[] args) {
 		context=new AnnotationConfigApplicationContext();
@@ -41,7 +49,8 @@ public class Test {
 		//test.createCategoria();
 		//test.listCategoria();
 		//test.updateProducto();
-		test.listarProducto();
+		//test.listarProducto();
+		test.testAdd();
 	}
 	
 	public void listarTipoPersona(){
@@ -112,5 +121,39 @@ public class Test {
 		for (Categoria categoria : list) {
 			System.out.println("Id: "+categoria.getId()+" Nombre: "+categoria.getNombre());
 		}
+	}
+	
+	public void testAdd(){
+		usuario=new Usuario();
+		usuario.setNombres("Jose");
+		usuario.setApellidos("Sucapuca Zenteno");
+		usuario.setEmail("suca@gmail.com");
+		usuario.setNumeroContacto("987456321");
+		usuario.setRol("USER");
+		usuario.setPassword("123456");
+		usuarioDao.addUsuario(usuario);
+		
+		direccion=new Direccion();
+		direccion.setDireccionLineaUno("Lurigancho");
+		direccion.setDireccionLineaDos("Chosica");
+		direccion.setCiudad("Lima");
+		direccion.setEstado("Lima");
+		direccion.setPais("Peru");
+		direccion.setCodigoPostal("051");
+		direccion.setBilling("1");
+		
+		//linkear el usuario con la direccion usando el id de usuario
+		direccion.setUsuarioId(usuario.getId());
+		
+		//agregar direccion
+		usuarioDao.addDireccion(direccion);
+		
+		if(usuario.getRol().equals("USER")){
+			//Crear el cart para este usuario
+			cart=new Cart();
+			cart.setUsuario(usuario);
+			usuarioDao.addCart(cart);
+		}
+		
 	}
 }

@@ -170,4 +170,8 @@ input:checked + .slider:before {
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
 }
 
+.content {
+	padding-bottom: 60px; /*height of the footer*/	
+}
+
 

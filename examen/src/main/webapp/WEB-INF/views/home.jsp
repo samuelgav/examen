@@ -97,8 +97,7 @@
 		</div>
 	</div>
 	<!-- /.row -->
-
+</div>
 	
 
-</div>
-<!-- /#page-wrapper -->
+
