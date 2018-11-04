@@ -1,6 +1,7 @@
 package pe.com.examen.dto;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,10 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -25,6 +30,7 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_usuario")
 	@SequenceGenerator(name="seq_usuario",sequenceName="seq_id_usuario",allocationSize=1)
+	/*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	private int id;
 	@NotBlank(message="Por favor ingrese su nombre!!")
 	@Column(name="nombres")
@@ -107,7 +113,7 @@ public class Usuario implements Serializable{
 				+ estado + ", password=" + password + ", email=" + email + ", numeroContacto=" + numeroContacto + "]";
 	}
 	
-	@OneToOne(mappedBy="usuario",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToOne(mappedBy="usuario",cascade = CascadeType.ALL, fetch = FetchType.EAGER)	
 	private Cart cart;
 	public Cart getCart() {
 		return cart;

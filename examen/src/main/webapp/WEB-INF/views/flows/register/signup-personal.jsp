@@ -1,69 +1,79 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@include file="../shared/flows-header.jsp" %>
 
-<spring:url var="css" value="/resources/css"/>
-<spring:url var="js" value="/resources/js"/>
-<spring:url var="images" value="/resources/images"/>
+	<!-- Page Content -->
+	<div class="container"> 
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4>Sign Up - Personal</h4>
+					</div>
+					<div class="panel-body">
+						<sf:form method="POST" class="form-horizontal" id="registerForm" modelAttribute="usuario">
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Nombres</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="nombres" class="form-control" placeholder="Nombres..."/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Apellidos</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="apellidos" class="form-control" placeholder="Apellidos..."/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Email</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="email" class="form-control" placeholder="Email..."/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Numero de Contacto</label>
+								<div class="col-md-8">
+									<sf:input type="text" path="numeroContacto" class="form-control" placeholder="Numero de Contacto..."/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Password</label>
+								<div class="col-md-8">
+									<sf:input type="password" path="password" class="form-control" placeholder="Password..."/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Seleccione rol</label>
+								<div class="col-md-8">
+									<label class="radio-inline">
+										<sf:radiobutton path="rol" value="USER" checked="checked"/> Usuario
+									</label>
+									<label class="radio-inline">
+										<sf:radiobutton path="rol" value="SUPPLIER" /> Supplier
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-md-offset-4 col-md-8">
+									<button type="submit" class="btn btn-primary" name="_eventId_billing">
+									Next - Billing <span class="glyphicon glyphicon-chevron-right"></span>
+									</button>
+								</div>								
+							</div>
+							
+						</sf:form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End -->
 
-<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-	
-	<script>
-		window.contextRoot = '${contextRoot}'	
-	</script>
-
-
-
-
-	<!-- Bootstrap Core CSS -->
-    <link href="${css}/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="${css}/metisMenu.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${css}/sb-admin-2.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="${css}/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="${css}/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="${css}/myapp.css" rel="stylesheet">
-    <link href="${css}/sweetalert2.min.css" rel="stylesheet">
-	<!-- <link href="${css}/material-dashboard.min.css" rel="stylesheet"> -->
-
-</head>
-<body>
-
-		
-
-	<!-- jQuery -->
-    <script src="${js}/jquery.min.js"></script>
-    
-    <script src="${js}/jquery.validate.js"></script> 
-    
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${js}/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="${js}/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="${js}/raphael.min.js"></script>
-    <!--<script src="${js}/morris.min.js"></script>-->
-    <!--<script src="${js}/morris-data.js"></script>-->
-    <!-- Custom Theme JavaScript -->
-    <script src="${js}/sb-admin-2.js"></script>
-    <!-- DataTable Plugin -->
-	<script src="${js}/jquery.dataTables.js"></script>
-	<!-- DataTable Bootstrap Script -->
-	<script src="${js}/dataTables.bootstrap.js"></script>
-	<script src="${js}/bootbox.min.js"></script>
-    <script src="${js}/tipopersonalist.js"></script>    
-    <script src="${js}/sweetalert2.min.js"></script>
-    <script src="${js}/personalist.js"></script>
-    <script src="${js}/productolist.js"></script>    
-</body>
-</html>
+<%@include file="../shared/flows-footer.jsp" %>

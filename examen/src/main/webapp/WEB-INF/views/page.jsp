@@ -79,7 +79,7 @@
 					<%@include file="administrarProducto.jsp"%>
 			</c:if>
 		
-
+		<!-- End Page Wrapper -->
 
 	<!-- jQuery -->
     <script src="${js}/jquery.min.js"></script>

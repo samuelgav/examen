@@ -93,4 +93,10 @@ public class PageController {
 		mv.addObject("userClickCategoriaProductos", true);
 		return mv;
 	}
+	
+	@RequestMapping(value="/register")
+	public ModelAndView register(){
+		ModelAndView mv=new ModelAndView("page");
+		return mv;
+	}
 }

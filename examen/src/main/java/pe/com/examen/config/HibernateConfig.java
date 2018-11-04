@@ -20,12 +20,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 
-	//constantes
+	//constantes ORACLE
 	private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
 	private static final String DIALECT="org.hibernate.dialect.Oracle10gDialect";
 	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String USER="bd_venta";
 	private static final String PASSWORD="123";
+	
+	//constantes MySQL
+	/*private static final String DRIVER="com.mysql.jdbc.Driver";
+	private static final String DIALECT="org.hibernate.dialect.MySQLDialect";
+	private static final String URL="jdbc:mysql://localhost:3306/bd_venta";
+	private static final String USER="root";
+	private static final String PASSWORD="";*/
+	
+	
 	
 	@Bean 
 	public DataSource getDataSource(){

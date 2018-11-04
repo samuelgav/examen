@@ -8,14 +8,16 @@
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
 		<a class="navbar-brand" href="${contextRoot}/home">Mantenimiento</a>
+		
 	</div>
 	<!-- /.navbar-header -->
-
+	
 	<ul class="nav navbar-top-links navbar-right">
-
+		
+		<li><a href="${contextRoot}/about"> Acerca de Nosotros</a></li>
 		<li><a href="${contextRoot}/register"> Registrar</a></li>
 		<li><a href="${contextRoot}/login"> Login</a></li>
-
+		
 
 		<!-- /.dropdown -->
 		<li class="dropdown"><a class="dropdown-toggle"
@@ -40,8 +42,7 @@
 				<li><a href="${contextRoot}/home"><i
 						class="fa fa-dashboard fa-fw"></i> Inicio</a></li>
 
-				<li><a href="${contextRoot}/about"><i
-						class="fa fa-dashboard fa-fw"></i> Acerca de Nosotros</a></li>
+				
 
 				<!--<li>
                             <a href="${contextRoot}/login"><i class="fa fa-dashboard fa-fw"></i> Login</a>

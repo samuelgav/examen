@@ -3,8 +3,49 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+      
+    <var name="usuario" class="pe.com.examen.dto.Usuario" />
+    <var name="billing" class="pe.com.examen.dto.Direccion" />
+    
+    <!--  -->
+    <on-start>
+    	<evaluate  expression="registerHandler.init()" result="flowScope.registerModel" />
+    </on-start>        
                           
-                          
-	<view-state id="personal" view="flows/register/signup-personal"></view-state>
+	<view-state id="personal" view="flows/register/signup-personal" model="usuario">
+		<transition on="billing" to="billing" />
+		<on-exit>
+			<evaluate expression="registerHandler.addUsuario(flowScope.registerModel,usuario)" />
+		</on-exit>
+	</view-state>
+	
+	<view-state id="billing" view="flows/register/signup-billing" model="billing">
+		<transition on="personal" to="personal"/>
+		<transition on="confirm" to="confirm"/>
+		<on-exit>
+			<evaluate  expression="registerHandler.addBilling(flowScope.registerModel,billing)"/>
+		</on-exit>
+	</view-state>
+	
+	<view-state id="confirm" view="flows/register/signup-confirm" model="flowScope.registerModel">
+		<transition on="personal" to="personal"/>
+		<transition on="billing" to="billing" />
+		<transition on="submit" to="submit"/>
+	</view-state>
+	
+	<action-state id="submit">
+		<evaluate expression="registerHandler.saveAll(flowScope.registerModel)" />
+		<transition on="success" to="success" />
+	</action-state>
+	
+	
+	<!-- end state -->
+	<end-state  id="home" view="externalRedirect:contextRelative:/"/>
+	<end-state  id="success" view="flows/register/signup-success" />
+	
+	<!-- Global Transition -->
+	<global-transitions>
+		<transition on="home" to="home"/>
+	</global-transitions>
 </flow>
 	

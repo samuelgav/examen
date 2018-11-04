@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import pe.com.examen.dao.CategoriaDao;
 import pe.com.examen.dao.PersonaDao;
 import pe.com.examen.dao.ProductoDao;
+import pe.com.examen.dao.TestDao;
 import pe.com.examen.dao.TipoPersonaDao;
 import pe.com.examen.dao.UsuarioDao;
 import pe.com.examen.dto.Cart;
@@ -14,10 +15,11 @@ import pe.com.examen.dto.Categoria;
 import pe.com.examen.dto.Direccion;
 import pe.com.examen.dto.Persona;
 import pe.com.examen.dto.Producto;
+import pe.com.examen.dto.Test;
 import pe.com.examen.dto.TipoPersona;
 import pe.com.examen.dto.Usuario;
 
-public class Test {
+public class Testeador {
 
 	private static AnnotationConfigApplicationContext context;
 	private static TipoPersonaDao tipoPersonaDao; 
@@ -25,10 +27,9 @@ public class Test {
 	private static CategoriaDao categoriaDao;
 	private static ProductoDao productoDao;
 	private static UsuarioDao usuarioDao;
-	private static Test test;
-	public Usuario usuario=null;
-	public Direccion direccion=null;
-	public Cart cart=null;
+	private static TestDao testDao;
+	private static Testeador test;
+	
 	
 	public static void main(String[] args) {
 		context=new AnnotationConfigApplicationContext();
@@ -38,8 +39,10 @@ public class Test {
 		personaDao=(PersonaDao)context.getBean("personaDAO");
 		categoriaDao=(CategoriaDao)context.getBean("categoriaDAO");
 		productoDao=(ProductoDao)context.getBean("productoDAO");
+		usuarioDao=(UsuarioDao)context.getBean("usuarioDAO");
+		testDao=(TestDao)context.getBean("testDAO");
 		
-		test=new Test();
+		test=new Testeador();
 		//test.add();
 		//test.update();
 		//test.delete();
@@ -50,7 +53,8 @@ public class Test {
 		//test.listCategoria();
 		//test.updateProducto();
 		//test.listarProducto();
-		test.testAdd();
+		//test.testAdd();
+		test.addTest();
 	}
 	
 	public void listarTipoPersona(){
@@ -80,6 +84,14 @@ public class Test {
 		tp.setDescripcion("ave");
 		tipoPersonaDao.save(tp);
 	}
+	
+	
+	public void addTest(){
+		Test t=new Test();
+		t.setDescripcion("test 2");
+		testDao.save(t);
+	}
+	
 	
 	public void update(){
 		TipoPersona tp=new TipoPersona();
@@ -124,36 +136,39 @@ public class Test {
 	}
 	
 	public void testAdd(){
-		usuario=new Usuario();
-		usuario.setNombres("Jose");
-		usuario.setApellidos("Sucapuca Zenteno");
-		usuario.setEmail("suca@gmail.com");
-		usuario.setNumeroContacto("987456321");
-		usuario.setRol("USER");
-		usuario.setPassword("123456");
-		usuarioDao.addUsuario(usuario);
 		
-		direccion=new Direccion();
+		Usuario usuario=new Usuario();
+		usuario.setNombres("Nombre 1");
+		usuario.setApellidos("Apellido 1");
+		usuario.setEmail("nombre1@gmail.com");
+		usuario.setNumeroContacto("999999999");
+		usuario.setEstado("1");
+		usuario.setRol("USER");
+		usuario.setPassword("12345");
+				
+		if(usuario.getRol().equals("USER")){
+			Cart cart=new Cart();
+			cart.setUsuario(usuario);
+			usuario.setCart(cart);
+		}
+		
+		usuarioDao.addUsuario(usuario);
+						
+		/*Direccion direccion=new Direccion();
 		direccion.setDireccionLineaUno("Lurigancho");
 		direccion.setDireccionLineaDos("Chosica");
 		direccion.setCiudad("Lima");
 		direccion.setEstado("Lima");
 		direccion.setPais("Peru");
 		direccion.setCodigoPostal("051");
+		direccion.setShipping("1");
+		
+		direccion.setUsuarioId(usuario.getId());
 		direccion.setBilling("1");
 		
-		//linkear el usuario con la direccion usando el id de usuario
-		direccion.setUsuarioId(usuario.getId());
+		usuarioDao.addDireccion(direccion);*/
 		
-		//agregar direccion
-		usuarioDao.addDireccion(direccion);
-		
-		if(usuario.getRol().equals("USER")){
-			//Crear el cart para este usuario
-			cart=new Cart();
-			cart.setUsuario(usuario);
-			usuarioDao.addCart(cart);
-		}
+	
 		
 	}
 }

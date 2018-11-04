@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -17,14 +21,15 @@ public class Direccion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_direccion")
-	@SequenceGenerator(name="seq_direccion",sequenceName="seq_id_direccion",allocationSize=1)
+	/*@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_direccion")
+	@SequenceGenerator(name="seq_direccion",sequenceName="seq_id_direccion",allocationSize=1)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@NotBlank(message="Por favor ingrese la primera direccion!!")
-	@Column(name="DIRECCION_LINEA_UNO")
+	@Column(name="direccion_linea_uno")
 	private String direccionLineaUno; 
 	@NotBlank(message="Por favor ingrese la segunda direccion!!")
-	@Column(name="DIRECCION_LINEA_DOS")
+	@Column(name="direccion_linea_dos")
 	private String direccionLineaDos;
 	@NotBlank(message="Por favor ingrese la ciudad!!")
 	@Column(name="ciudad")
@@ -36,11 +41,11 @@ public class Direccion implements Serializable {
 	@Column(name="pais")
 	private String pais;
 	@NotBlank(message="Por favor ingrese el codigo postal!!")
-	@Column(name="CODIGO_POSTAL")
+	@Column(name="codigo_postal")
 	private String codigoPostal;
-	@Column(name="IS_BILLING")
+	@Column(name="is_billing")
 	private String billing;
-	@Column(name="IS_SHIPPING")
+	@Column(name="is_shipping")
 	private String shipping;
 	
 	
@@ -100,23 +105,23 @@ public class Direccion implements Serializable {
 				+ codigoPostal + ", billing=" + billing + "]";
 	}
 	
-	
-	@Column(name="USUARIO_ID")
-	private int usuarioId;
-
-
-	public String getShipping() {
-		return shipping;
-	}
-	public void setShipping(String shipping) {
-		this.shipping = shipping;
-	}
+	@Column(name="usuario_id")	
+	private int usuarioId;	
 	public int getUsuarioId() {
 		return usuarioId;
 	}
 	public void setUsuarioId(int usuarioId) {
 		this.usuarioId = usuarioId;
 	}
+	public String getShipping() {
+		return shipping;
+	}
+	public void setShipping(String shipping) {
+		this.shipping = shipping;
+	}
+	
+	
+	
 	
 	
 	
