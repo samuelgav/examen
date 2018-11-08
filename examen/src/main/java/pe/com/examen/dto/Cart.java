@@ -10,18 +10,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.ForeignKey;
+
+
 
 @Entity
 public class Cart implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_cart")
-	@SequenceGenerator(name="seq_cart",sequenceName="seq_id_cart",allocationSize=1)
-	/*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	/*@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_cart")
+	@SequenceGenerator(name="seq_cart",sequenceName="seq_id_cart",allocationSize=1)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id",nullable=false)
 	private int id;
 	@Column(name="grand_total")
 	private double grandTotal;

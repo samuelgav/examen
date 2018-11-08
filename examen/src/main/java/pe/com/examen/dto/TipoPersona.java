@@ -19,8 +19,9 @@ public class TipoPersona implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy =GenerationType.SEQUENCE,generator="seq_tipopersona")
-	@SequenceGenerator(name="seq_tipopersona",sequenceName="incremento_id_tipopersona",allocationSize=1)
+	/*@GeneratedValue(strategy =GenerationType.SEQUENCE,generator="seq_tipopersona")
+	@SequenceGenerator(name="seq_tipopersona",sequenceName="incremento_id_tipopersona",allocationSize=1)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id",updatable = false, nullable = false)
 	private int id;
 	@Column(name="descripcion")

@@ -53,8 +53,8 @@ public class Testeador {
 		//test.listCategoria();
 		//test.updateProducto();
 		//test.listarProducto();
-		//test.testAdd();
-		test.addTest();
+		test.testAdd();
+		//test.addTest();
 	}
 	
 	public void listarTipoPersona(){
@@ -154,7 +154,7 @@ public class Testeador {
 		
 		usuarioDao.addUsuario(usuario);
 						
-		/*Direccion direccion=new Direccion();
+	/*	Direccion direccion=new Direccion();
 		direccion.setDireccionLineaUno("Lurigancho");
 		direccion.setDireccionLineaDos("Chosica");
 		direccion.setCiudad("Lima");

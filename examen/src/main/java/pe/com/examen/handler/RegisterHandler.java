@@ -44,7 +44,7 @@ public class RegisterHandler {
 		Direccion direccion=model.getDireccion();
 		direccion.setUsuarioId(usuario.getId());
 		direccion.setBilling("1");
-		
+		direccion.setShipping("1");
 		usuarioDao.addDireccion(direccion);
 		
 		return transitionValue;

@@ -24,8 +24,9 @@ public class Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_persona")
-	@SequenceGenerator(name="seq_persona",sequenceName="incremento_id_persona",allocationSize=1)
+	/*@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_persona")
+	@SequenceGenerator(name="seq_persona",sequenceName="incremento_id_persona",allocationSize=1)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idpersona;
 	@Column(name="nombres")
 	@NotBlank(message="Por favor ingrese su nombre!!")

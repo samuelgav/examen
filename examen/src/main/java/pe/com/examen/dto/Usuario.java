@@ -28,9 +28,10 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_usuario")
-	@SequenceGenerator(name="seq_usuario",sequenceName="seq_id_usuario",allocationSize=1)
-	/*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	/*@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq_usuario")
+	@SequenceGenerator(name="seq_usuario",sequenceName="seq_id_usuario",allocationSize=1)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id",nullable=false)
 	private int id;
 	@NotBlank(message="Por favor ingrese su nombre!!")
 	@Column(name="nombres")
