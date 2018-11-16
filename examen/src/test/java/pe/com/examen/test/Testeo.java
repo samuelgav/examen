@@ -10,7 +10,9 @@ public class Testeo {
 	private static String respuesta="";
 	
 	public static void main(String[] args) {
-		while(opcion !=0){
+		Testeo t=new Testeo();
+		t.tri_recursion(6);
+		/*while(opcion !=0){
 			try {
 				System.out.println("-----MENU------");
 				System.out.println("1. Dar numero");
@@ -42,7 +44,18 @@ public class Testeo {
 			} catch (Exception e) {
 				System.out.println("Error!!");
 			}
-		}		
+		}*/		
+	}
+	
+	public int tri_recursion(int k){
+		int result;
+		if(k>0){
+			result=k+tri_recursion(k-1);
+			System.out.println(result);
+		}else{
+			result=0;
+		}
+		return result;
 	}
 
 }

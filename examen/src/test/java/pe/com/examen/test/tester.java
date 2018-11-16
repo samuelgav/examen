@@ -7,7 +7,7 @@ public class tester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
-		int acumMayor=0;
+		/*int acumMayor=0;
 		int acumMenor=0;
 		
 		System.out.println("Ingrese cantidad de personas:");
@@ -32,7 +32,7 @@ public class tester {
 			System.out.println("La cantidad de personas menores de edad son: "+acumMenor);
 		}else{
 			System.out.println("No hay personas menores de edad");
-		}
+		}*/
 	}
 
 }

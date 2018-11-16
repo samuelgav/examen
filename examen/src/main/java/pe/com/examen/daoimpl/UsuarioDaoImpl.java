@@ -54,7 +54,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	@Override
 	public Usuario getByEmail(String email) {
-		String sql="FROM Usuario where email =:email";
+		String sql="FROM Usuario WHERE email =:email";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(sql,Usuario.class).setParameter("email",email).getSingleResult();

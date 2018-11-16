@@ -16,6 +16,7 @@
 								<label class="control-label col-md-4">Nombres</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="nombres" class="form-control" placeholder="Nombres..."/>
+									<sf:errors path="nombres" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -23,6 +24,7 @@
 								<label class="control-label col-md-4">Apellidos</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="apellidos" class="form-control" placeholder="Apellidos..."/>
+									<sf:errors path="apellidos" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -30,6 +32,7 @@
 								<label class="control-label col-md-4">Email</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="email" class="form-control" placeholder="Email..."/>
+									<sf:errors path="email" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -37,6 +40,7 @@
 								<label class="control-label col-md-4">Numero de Contacto</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="numeroContacto" class="form-control" placeholder="Numero de Contacto..."/>
+									<sf:errors path="numeroContacto" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -44,6 +48,15 @@
 								<label class="control-label col-md-4">Password</label>
 								<div class="col-md-8">
 									<sf:input type="password" path="password" class="form-control" placeholder="Password..."/>
+									<sf:errors path="password" cssClass="help-block" element="em" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label col-md-4">Confirmar Password</label>
+								<div class="col-md-8">
+									<sf:input type="password" path="confirmarPassword" class="form-control" placeholder="Password..."/>
+									<sf:errors path="confirmarPassword" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -56,6 +69,7 @@
 									<label class="radio-inline">
 										<sf:radiobutton path="rol" value="SUPPLIER" /> Supplier
 									</label>
+									<sf:errors path="rol" cssClass="help-block" element="em"/>
 								</div>
 							</div>
 							

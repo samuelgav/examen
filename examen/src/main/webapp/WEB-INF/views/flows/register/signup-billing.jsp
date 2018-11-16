@@ -16,6 +16,7 @@
 								<label class="control-label col-md-4" for="direccionLineaUno">Primera Direccion</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="direccionLineaUno" class="form-control" placeholder="DIRECCION LINEA UNO..."/>
+									<sf:errors path="direccionLineaUno" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -23,6 +24,7 @@
 								<label class="control-label col-md-4" for="direccionLineaDos">Segunda Direccion</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="direccionLineaDos" class="form-control" placeholder="DIRECCION LINEA DOS..."/>
+									<sf:errors path="direccionLineaDos" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -30,6 +32,7 @@
 								<label class="control-label col-md-4" for="ciudad">Ciudad</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="ciudad" class="form-control" placeholder="Ciudad..."/>
+									<sf:errors path="ciudad" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -37,6 +40,7 @@
 								<label class="control-label col-md-4" for="codigoPostal">Codigo Postal</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="codigoPostal" class="form-control" placeholder="Codigo Postal..."/>
+									<sf:errors path="codigoPostal" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -44,6 +48,7 @@
 								<label class="control-label col-md-4" for="estado">Estado</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="estado" class="form-control" placeholder="Estado..."/>
+									<sf:errors path="estado" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -51,6 +56,7 @@
 								<label class="control-label col-md-4" for="pais">Pais</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="pais" class="form-control" placeholder="Pais..."/>
+									<sf:errors path="pais" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							

@@ -1,6 +1,7 @@
 package pe.com.examen.test;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -29,7 +30,7 @@ public class Testeador {
 	private static UsuarioDao usuarioDao;
 	private static TestDao testDao;
 	private static Testeador test;
-	
+	private final Scanner sc=new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		context=new AnnotationConfigApplicationContext();
@@ -43,6 +44,7 @@ public class Testeador {
 		testDao=(TestDao)context.getBean("testDAO");
 		
 		test=new Testeador();
+		test.MayorMenor();
 		//test.add();
 		//test.update();
 		//test.delete();
@@ -53,7 +55,7 @@ public class Testeador {
 		//test.listCategoria();
 		//test.updateProducto();
 		//test.listarProducto();
-		test.testAdd();
+		//test.testAdd();
 		//test.addTest();
 	}
 	
@@ -167,8 +169,39 @@ public class Testeador {
 		direccion.setBilling("1");
 		
 		usuarioDao.addDireccion(direccion);*/
-		
+		}
 	
-		
-	}
+	
+		public void MayorMenor(){
+			int mayor,menor,numero;
+			System.out.println("Ingrese cantidad de numero: ");
+			int cant=Integer.parseInt(sc.nextLine());
+			System.out.println();
+			System.out.println("Ingrese un numero:");
+			numero=Integer.parseInt(sc.nextLine());
+			mayor=numero;
+			menor=mayor;
+			for(int i=2;i<=cant;i++){
+				System.out.println("Ingrese un numero: ");
+				numero=Integer.parseInt(sc.nextLine());
+				if(numero>mayor) mayor=numero;
+				if(numero<menor) menor=numero;
+			}
+			System.out.println("El numero mayor es: "+mayor);
+			System.out.println("El numero menor es: "+menor);
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,6 +1,8 @@
 package pe.com.examen.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 import pe.com.examen.dao.UsuarioDao;
@@ -26,6 +28,24 @@ public class RegisterHandler {
 	public void addBilling(RegisterModel registerModel,Direccion direccion){
 		registerModel.setDireccion(direccion);
 	}
+	
+	
+	public String validateUsuario(Usuario usuario,MessageContext error){
+		String transitionValue="success";
+		if(!(usuario.getPassword().equals(usuario.getConfirmarPassword()))){
+			error.addMessage(new MessageBuilder().error().source("confirmarPassword").defaultText("Password no coinciden").build());
+			transitionValue="failure";
+		}
+		if(usuarioDao.getByEmail(usuario.getEmail())!=null){
+			error.addMessage(new MessageBuilder().error().source("email").defaultText("Correo ya existe!!").build());
+			transitionValue="failure";
+		}
+		
+		
+		return transitionValue;
+	}
+	
+	
 	
 	public String saveAll(RegisterModel model){
 		String transitionValue="success";
