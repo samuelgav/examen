@@ -41,18 +41,15 @@
 			<ul class="nav" id="side-menu">
 				<li><a href="${contextRoot}/home"><i
 						class="fa fa-dashboard fa-fw"></i> Inicio</a></li>
-
-				
-
-				<!--<li>
+						<!--<li>
                             <a href="${contextRoot}/login"><i class="fa fa-dashboard fa-fw"></i> Login</a>
                         </li> -->
 
 				<li><a href="${contextRoot}/show/all/tipopersona"><i
 						class="fa fa-dashboard fa-fw"></i> Tipo Personas</a></li>
 
-				<li><a href="${contextRoot}/show/all/personas"><i
-						class="fa fa-dashboard fa-fw"></i> Personas</a></li>
+				<!-- <li><a href="${contextRoot}/show/all/personas"><i
+						class="fa fa-dashboard fa-fw"></i> Personas</a></li> -->
 				<li><a href="${contextRoot}/show/all/producto"><i
 						class="fa fa-dashboard fa-fw"></i> Producto</a></li>
 

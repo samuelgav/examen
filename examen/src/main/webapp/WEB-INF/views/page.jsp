@@ -12,6 +12,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
+
 <title>Insert title here</title>
 	
 	<script>
@@ -101,9 +104,7 @@
 	<!-- DataTable Bootstrap Script -->
 	<script src="${js}/dataTables.bootstrap.js"></script>
 	<script src="${js}/bootbox.min.js"></script>
-    <script src="${js}/tipopersonalist.js"></script>    
     <script src="${js}/sweetalert2.min.js"></script>
-    <script src="${js}/personalist.js"></script>
-    <script src="${js}/productolist.js"></script>    
+    <script src="${js}/myapp.js"></script>        
 </body>
 </html>

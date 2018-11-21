@@ -33,6 +33,21 @@ public class tester {
 		}else{
 			System.out.println("No hay personas menores de edad");
 		}*/
+	/*	System.out.println("Ingrese numero: ");
+		int numero=sc.nextInt();
+		int result=1;
+		for(int i=1;i<=numero;i++){
+			result=result*i;			
+		}
+		System.out.println("El resulado es: "+result);*/
+		
+		System.out.println("Ingrese palabra: ");
+		String palabra=sc.nextLine();
+		int longitud=palabra.length();
+		String str=palabra.substring(1,4);
+		System.out.println(str);
+		System.out.println(longitud);
+		
 	}
 
 }

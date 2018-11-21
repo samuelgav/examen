@@ -40,6 +40,7 @@
   <link href="${css}/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="${css}/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection"> 
   
+  <link href="${css}/myapp.css" rel="stylesheet">
   
   <script type="text/javascript">
 	window.menu='${title}';
@@ -55,12 +56,29 @@
       <div class="loader-section section-right"></div>
   </div>
   <!-- End Page Loading -->
+  
+<nav class="light-blue lighten-1" role="navigation">
+<div class="nav-wrapper container">
+	<ul class="right hide-on-med-and-down">
+		<li>
+			<a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
+		</li>	
+	</ul>	
+</div>
+</nav>
 
+  <c:if test="${not empty message}">
+  	<div class="row">
+  		<div class="col-md-offset-3 col-md-6">
+  			<div class="alert alert-danger">${message}</div>
+  		</div>
+  	</div>  
+  </c:if>
 
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" action="${contextRoot}/login" method="post" id="loginForm">
+      <form class="login-form" action="${contextRoot}/login" method="POST" id="loginForm">
         <div class="row">
           <div class="input-field col s12 center">
             <img src="${images}/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
@@ -70,30 +88,30 @@
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text">
+            <input id="username" type="text" name="username" />
             <label for="username" class="center-align">Usuario</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
+            <input id="password" type="password" name="password" />
             <label for="password">Password</label>
           </div>
         </div>
         
         <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+            <input type="submit" value="Login" class="btn waves-effect waves-light col s12"/> 
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>    
           </div>
         </div>
-        <div class="row">
+      </form>
+       <div class="row">
           <div class="input-field col s12 m12 l12">
             <p class="margin medium-small"><a href="${contextRoot}/register">REGISTRAR NUEVO USUARIO!</a></p>
           </div>                    
         </div>
-
-      </form>
     </div>
   </div>
 
@@ -105,6 +123,9 @@
 
   <!-- jQuery Library -->
   <script type="text/javascript" src="${js}/jquery-1.11.2.min.js"></script>
+  
+  <script src="${js}/jquery.validate.js"></script>
+  
   <!--materialize js-->
   <script type="text/javascript" src="${js}/materialize.min.js"></script>
   <!--prism-->
@@ -116,6 +137,8 @@
     <script type="text/javascript" src="${js}/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="${js}/custom-script.js"></script>
+    
+    <script type="text/javascript" src="${js}/myapp.js"></script>
 
 </body>
 

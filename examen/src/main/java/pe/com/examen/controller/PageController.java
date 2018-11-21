@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.examen.dao.CategoriaDao;
@@ -31,8 +32,11 @@ public class PageController {
 	}
 
 	@RequestMapping(value="/login")
-	public ModelAndView login(){
+	public ModelAndView login(@RequestParam(name="error", required=false)String error){
 		ModelAndView mv=new ModelAndView("login");
+		if(error !=null){
+			mv.addObject("message", "Usuario y password invalido!!");
+		}
 		mv.addObject("title", "Login");
 		return mv;
 	}
@@ -60,10 +64,9 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="/show/{idpersona}/persona")
-	public ModelAndView showSinglePersona(@PathVariable int idpersona) throws PersonaNotFoundException{
+	public ModelAndView showSinglePersona(@PathVariable("idpersona") int idpersona){
 		ModelAndView mv=new ModelAndView("page");
-		Persona persona=personaDAO.get(idpersona);
-		if(persona ==null) throw new PersonaNotFoundException();
+		Persona persona=personaDAO.get(idpersona);		
 		//mv.addObject("title", persona.getNombres());
 		if(persona.getSexo().equals("M")){
 			mv.addObject("sexo", "Masculino");
@@ -99,4 +102,7 @@ public class PageController {
 		ModelAndView mv=new ModelAndView("page");
 		return mv;
 	}
+	
+
+	
 }
