@@ -3,6 +3,7 @@ package pe.com.examen.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import pe.com.examen.dao.UsuarioDao;
@@ -16,6 +17,10 @@ public class RegisterHandler {
 
 	@Autowired
 	private UsuarioDao usuarioDao;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	
 	public RegisterModel init(){
 		return new RegisterModel();
@@ -56,6 +61,9 @@ public class RegisterHandler {
 			cart.setUsuario(usuario);
 			usuario.setCart(cart);
 		}
+		
+		//encode password
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		
 		//guardar usuario
 		usuarioDao.addUsuario(usuario);
