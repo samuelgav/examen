@@ -11,6 +11,17 @@ import java.util.Map;
 public class Testing {
 
 	public static void main(String[] args) {
+		
+		int[] a={1,2,3};
+		int[] b={2,3};
+		for(int i=0;i<a.length;i++){
+			for(int j=0;j<b.length;j++){
+				if(a[i]==b[j]){
+					System.out.println(a[i]);
+				}
+			}
+		}
+		
 		List<HashMap<String,String>> list=new ArrayList<>();
 		List<Categoria> cat=new ArrayList<>();
 		cat.add(new Categoria("categoria 1"));
@@ -27,7 +38,7 @@ public class Testing {
 			hm.put("descripcion", descripcion);
 			list.add(hm);
 		}
-		
+		System.out.println();
 		for(HashMap<String,String> h: list){
 			System.out.println(h.get("id")+" "+h.get("descripcion"));
 		}
