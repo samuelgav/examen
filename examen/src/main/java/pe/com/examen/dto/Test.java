@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+* @author  danielrz94
+* @version 1.0
+* @since   2018-12-29 
+*/
 @Entity
 public class Test implements Serializable{
 
