@@ -1,7 +1,11 @@
 package pe.com.examen.config;
 
 
-
+/**
+* @author  Samuel Gavidia
+* @version 1.0
+* @since   2018-12-29 
+*/
 import java.util.Properties;
 
 import javax.sql.DataSource;
